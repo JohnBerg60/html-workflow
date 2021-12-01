@@ -19,6 +19,8 @@ This will start a local web server, with browser reload.
 
 4. When done you can deploy files from the `dist` folder to the live website.
 
+5. Use ```gulp --task``` to see all the tasks that gulp can perform
+
 #### Unit testing
 This setup provides typescript unit testing, in VS Code.  
 Install the `Test explorer UI and Mocha Test Eplorer` extensions intn VS Code. Make sure there is a settings.json file in the local .vscode folder. Add the following 2 lines to settings.json

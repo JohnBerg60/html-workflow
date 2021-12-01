@@ -1,4 +1,4 @@
-import {Calculator} from '../src/ts/calculator'
+import {Calculator} from '../src/module/calculator'
 import {expect} from 'chai'
 
 describe('calculator', () => {
