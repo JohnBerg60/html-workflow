@@ -1,6 +1,5 @@
 # html-workflow
-Simple website, showing html workflow with typescript# html-workflow
-Simple website, showing html workflow
+Simple website, showing html development toolchain with VS Code using typescript.
 
 #### Prerequisites:
 - npm, current version 8.1.0
@@ -12,7 +11,7 @@ Simple website, showing html workflow
 `git clone https://github.com/JBerg60/html-workflow.git`<br />
 A new folder with subfolders html-workflow will be created with all files
 
-2. Update all node modules by running `npm install`
+2. Update all node modules by running `npm install`. Restart VS Code if nessesary.
 
 3. Start the devellopment by running `gulp`
 This will start a local web server, with browser reload.
