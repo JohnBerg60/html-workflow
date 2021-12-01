@@ -4,6 +4,9 @@ const gulp = require('gulp');
 const del = require("del");
 const connect = require('gulp-connect');
 
+const ts = require('gulp-typescript');
+const tsp = ts.createProject('tsconfig.json');
+
 const { watch, series, parallel } = require('gulp');
 
 const paths = {
@@ -32,19 +35,25 @@ function server(done) {
 function html() {
     return gulp.src(paths.html)
         .pipe(gulp.dest(paths.dest))
-        .pipe(connect.reload());        
+        .pipe(connect.reload());
 }
 
 function css() {
     return gulp.src(paths.css)
         .pipe(gulp.dest(paths.dest))
-        .pipe(connect.reload());        
+        .pipe(connect.reload());
 }
 
 function img() {
     return gulp.src(paths.images)
         .pipe(gulp.dest(paths.dest))
-        .pipe(connect.reload());        
+        .pipe(connect.reload());
+}
+
+function typescript() {
+    return tsp.src()
+        .pipe(tsp())
+        .pipe(gulp.dest('dist'));
 }
 
 function monitor(done) {
@@ -52,7 +61,7 @@ function monitor(done) {
     done();
 }
 
-const build = series(clean, parallel(html, css, img));
+const build = series(clean, parallel(html, css, img, typescript));
 
 exports.clean = clean;
 exports.build = build;
