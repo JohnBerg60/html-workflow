@@ -1,0 +1,12 @@
+{
+	"name": "html_workflow",
+	"description": "Basic Gulp niceties for rapidly building stuff",
+	"version": "0.0.1",
+	"author": "John Berg",
+	"devDependencies": {
+		"del": "^3.0.0",
+		"gulp": "^4.0.2",
+		"gulp-concat": "^2.6.1",
+		"gulp-connect": "^5.2.0"
+	}
+}
