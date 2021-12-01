@@ -12,6 +12,7 @@ const { watch, series, parallel } = require('gulp');
 const paths = {
     html: ['./src/**/*.html'],
     css: ['./src/**/*.css'],
+    ts: ['./src/**/*.ts'],
     images: ['./src/**/*.ico', './src/**/*.png', './src/**/*.jpg', './src/**/*.jpeg'],
     src: 'src/**',
     dist: 'dist/**',
@@ -53,16 +54,19 @@ function img() {
 function typescript() {
     return tsp.src()
         .pipe(tsp())
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('dist'))
+        .pipe(connect.reload());
 }
 
 function monitor(done) {
     watch(paths.html, series(html));
+    watch(paths.css, series(css));
+    watch(paths.ts, series(typescript))
     done();
 }
 
-const build = series(clean, parallel(html, css, img, typescript));
+const build = parallel(html, css, img, typescript);
 
 exports.clean = clean;
 exports.build = build;
-exports.default = series(build, server, monitor);
+exports.default = series(clean, server, build, monitor);
